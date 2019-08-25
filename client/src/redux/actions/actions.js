@@ -13,7 +13,18 @@ export const removeUser = (user) => ({
     user
 })
 
-export const login = (currentUser) => ({
+export const login = (user) => ({
     type: 'LOGIN',
-    currentUser
+    user
+})
+
+export const newMessage = (message, userSocketId) => ({
+    type: 'NEW_MESSAGE',
+    message,
+    userSocketId
+})
+
+export const changeReceiver = (receiver) => ({
+    type: 'NEW_RECEIVER',
+    receiver
 })

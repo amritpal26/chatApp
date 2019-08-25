@@ -6,16 +6,18 @@ import './index.css';
 import LoginPage from './containers/LoginPage/LoginPage';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './redux/reducers/chatApp';
+import { BrowserRouter, Route } from 'react-router-dom'
 
-const initialState = {
-    loggedInUsers: []
-}
+import Messenger from './containers/Messenger/Messenger';
 
-const store = createStore(rootReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 render(
     <Provider store={store}>
-        <LoginPage />
+        <BrowserRouter>    
+            <Route exact path="/" component={ LoginPage } />
+            <Route path='/chats' component={ Messenger } />
+        </BrowserRouter>
     </Provider>
     , document.getElementById('root')
 );

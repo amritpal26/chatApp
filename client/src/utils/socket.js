@@ -7,6 +7,10 @@ socket.on('connect', (e) => {
     socket.on('disconnect', () => {
         console.log("client disconnected");
     });
+
+    socket.on('receive_private_message', (message) => {
+        console.log('receive_private_message: ' + message)
+    });
 });
 
 export default socket;

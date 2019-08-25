@@ -1,5 +1,6 @@
 const initialState = {
-    loggedInUsers: []
+    loggedInUsers: [],
+    user: {socketId: ''}
 }
 
 const users = (state = initialState, action) => {
@@ -13,7 +14,7 @@ const users = (state = initialState, action) => {
                 ]
             }
             
-        case 'ADD_LOGGED_IN_USERS':  
+        case 'ADD_LOGGED_IN_USERS': 
             return {...state,
                 loggedInUsers: action.loggedInUsers
             }
@@ -27,7 +28,7 @@ const users = (state = initialState, action) => {
         case 'LOGIN':
             return {
                 ...state,
-                currentUser: action.currentUser
+                user: action.user
             }
 
         default:

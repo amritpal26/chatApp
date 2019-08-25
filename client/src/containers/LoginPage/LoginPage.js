@@ -12,7 +12,7 @@ class LoginPage extends Component{
     state={
         nickname: '',
         loading: false,
-        warningMessage: ''
+        warningMessage: ' '
     }
 
     componentWillMount() {
@@ -25,12 +25,10 @@ class LoginPage extends Component{
     }
 
     onJoinClicked = () => {
-        console.log('trying to join a new user')
-        console.log(this.state)
         if(this.state.nickname.length <= 0){
             this.setState({warningMessage: 'Enter nickname' })
         }else{
-            this.setState({loading: true, warningMessage: ''})
+            this.setState({loading: true, warningMessage: ' '})
             socket.emit('join_user', { nickname: this.state.nickname})
         }
     }
@@ -53,6 +51,7 @@ class LoginPage extends Component{
             this.props.dispatch(login(data.onlineUser))
             this.props.dispatch(addLoggedInUsers(data.onlineUsers))
             this.setState({nickname: data.onlineUser.nickname, nicknameTaken: false, loading: false})
+            this.props.history.push('/chats')
         });
         socket.on('nickname_taken', () => {
             this.setState({warningMessage: 'Nickname taken', loading: false})
@@ -63,18 +62,21 @@ class LoginPage extends Component{
         const loading = this.state.loading
         const warningMessage = this.state.warningMessage
         return (
-            <div className="App-header">
-                <div className='Chat-heading'>Chat App</div>
-                <img src={chatLogo} className="Chat-logo" alt="logo" />
-                <div>
-                    <input id='nickname_input' placeholder='nickname' onChange={this.onNicknameChange}></input>
-                    <button id='join_button' className='button' onClick={ this.onJoinClicked } disabled={loading}>
-                        { loading && <ClipLoader sizeUnit={"px"} size={20} color={'#000'} loading={this.state.loading}/> }
-                        { !loading && <span>Join</span> }
-                    </button>
+            <div className="App">
+                <div className='login-page-container'>
+                    <div className='Chat-heading'>Chat App</div>
+                    <img src={chatLogo} className="Chat-logo" alt="logo" />
+                    <div>
+                        <input id='nickname_input' placeholder='nickname' onChange={this.onNicknameChange}></input>
+                        <button id='join_button' className='button' onClick={ this.onJoinClicked } disabled={loading}>
+                            { loading && <ClipLoader sizeUnit={"px"} size={20} color={'#000'} loading={this.state.loading}/> }
+                            { !loading && <span>Join</span> }
+                        </button>
+                    </div>
+                    <div className='danger-text' >{warningMessage}</div>
                 </div>
-                { warningMessage !== '' && <div className='danger-text' >{warningMessage}</div> }
             </div>
+                
         );
     }
 }
