@@ -1,0 +1,27 @@
+.toolbar-container{
+    display: flex;
+    justify-content: center;
+
+    background-color: white;
+    font-weight: 500;
+    border-bottom: 1px solid #eeeef1;
+
+    position: sticky;
+    top: 0px;
+    padding: 10px;
+}
+
+.toolbar-title{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+    color: black;
+}
+
+/* @supports (backdrop-filter: blur(20px)) {
+    .toolbar-container {
+      border: none;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+    }
+} */

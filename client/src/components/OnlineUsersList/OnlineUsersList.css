@@ -1,0 +1,16 @@
+.users-container {
+    flex: 1;
+    max-height: calc(90vh);
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.users-list{
+    overflow-y: scroll;
+}
+
+.users-list-parent{
+    background-color: #F5FAFA;
+    flex: 1;
+    height: 100%
+}

@@ -1,0 +1,57 @@
+.current-chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+    max-height: calc(90vh);
+    overflow-y: scroll;
+    height: 100%;
+    background-color: #F5FAFA;
+}
+
+.message-input{
+    width: 95%;
+    display: inline-flex;
+    align-self: center;
+    height: 36px;
+    margin: 10px;
+}
+
+input {
+    flex:1;
+    font-size: 20px;
+    height: 30px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+button {
+    font-size: 20px;
+    background: rgb(99, 207, 250);
+    border-radius: 5px;
+    font-family: Tahoma;
+}
+
+.message-list-container {
+    flex: 1;
+    padding: 10px;
+    padding-bottom: 70px;
+    overflow-y: scroll;
+}
+
+.no-user-selected-message{
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    padding-bottom: 70px;
+    overflow-y: scroll;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    align-self: center;
+}
+
+.no-user-selected-message-text{
+    align-self: center;
+    justify-self: center;
+}

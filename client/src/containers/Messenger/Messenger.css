@@ -1,0 +1,21 @@
+.split-container {
+    display: flex;
+    flex: 1;
+}
+
+.left-container {
+    flex: 0 1 35%;
+    max-width: 35%;
+}
+.right-container {
+    flex: 0 1 65%;
+    max-width: 65%;
+}
+
+.left-container + .right-container {
+    border-left: solid 5px #bed5dd;
+}
+
+.chat-page-header{
+    max-height: calc(10vh);
+}
