@@ -16,7 +16,7 @@ render(
     <Provider store={store}>
         <BrowserRouter>    
             <Route exact path="/" component={ LoginPage } />
-            <Route path='/chats' component={ Messenger } />
+            <Route exact path='/chats' component={ Messenger } />
         </BrowserRouter>
     </Provider>
     , document.getElementById('root')

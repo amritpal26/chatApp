@@ -4,12 +4,14 @@
   "description": "Simpple chat app using react, node js and mongodb",
   "main": "server.js",
   "scripts": {
+    "build": "react-scripts build",
     "start": "node ./bin/www"
   },
   "author": "Amritpal Singh",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "mongodb": "^3.2.7",
     "mongoose": "^5.6.4",
     "socket.io": "^2.2.0"

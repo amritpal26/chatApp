@@ -1,8 +1,10 @@
 const createError = require('http-errors');
 const path = require('path')
 const mongoose = require('mongoose');
+const express = require('express')
 
-const app = require('express')();
+const favicon = require('express-favicon');
+const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const keys = require('./config/keys')
@@ -24,8 +26,9 @@ io.on('connection', async (socket) =>{
     require('./sockets/disconnect')(io, socket);
 });
 
-// TODO
-app.get('/', (req, res) => { res.sendFile(path.join(__dirname + '/../client/public/index.html'))});
+app.use(favicon(__dirname + '/client/build/favicon.ico'));
+app.use(express.static(__dirname + '/client/build'))
+app.get('/', (req, res) => { res.sendFile(path.join(__dirname, '/client/build/index.html'))});
 app.get('*', (req, res) => { res.status(404).send('something went wrong.')})
 
 // catch 404 error and forward to error handler.
